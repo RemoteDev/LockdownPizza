@@ -26,10 +26,10 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
+          <a class="nav-link" href="./index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./deals.php">Deals</a>
+          <a class="nav-link active" aria-current="page" href="./deals.php">Deals</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./pizzas.php">Pizzas</a>
@@ -49,10 +49,56 @@
 </nav>
 
 <main class="container">
-<svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>PROMOTIONAL BANNER</title><rect width="100%" height="100%" fill="#d6860d"/><text x="38%" y="50%" fill="#eceeef" dy=".3em">PROMOTIONAL BANNER</text></svg>
+
   <div class="starter-template text-center py-5 px-3">
-    <h1>Lockdown Pizza</h1>
-    <p class="lead">Form for entering address and delivery/collection can go here.</p>
+    <h1>Deals</h1>
+  </div>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <p class="card-text"><b>30% OFF PIZZAS WHEN YOU SPEND £30</b></p>
+              <div class="d-flex justify-content-between align-items-center">
+              <p class="text-muted">T&Cs apply</p>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-lg btn-primary">Apply</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <p class="card-text"><b>40% OFF PIZZAS WHEN YOU SPEND £40</b></p>
+              <div class="d-flex justify-content-between align-items-center">
+              <p class="text-muted">T&Cs apply</p>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-lg btn-primary">Apply</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <p class="card-text"><b>ANY SIZE ONLY £13.99</b></p>
+              <div class="d-flex justify-content-between align-items-center">
+              <p class="text-muted">T&Cs apply</p>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-lg btn-primary">Apply</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </main><!-- /.container -->

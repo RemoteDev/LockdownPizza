@@ -48,10 +48,10 @@
           <a class="nav-link" href="./deals.php">Deals</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="./pizzas.php">Pizzas</a>
+        <a class="nav-link" href="./pizzas.php">Pizzas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./sides.php">Sides</a>
+          <a class="nav-link active" aria-current="page" href="./sides.php">Sides</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./drinks.php">Drinks</a>
@@ -67,7 +67,7 @@
 <main class="container">
 
   <div class="starter-template text-center py-5 px-3">
-    <h1>Pizzas</h1>
+    <h1>Sides</h1>
   </div>
   
   <div class="album py-5 bg-light">
@@ -76,45 +76,42 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Cheese & Tomato Pizza</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Cheese & Tomato</text></svg>
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Chicken Nuggets</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Chicken Nuggets</text></svg>
             <div class="card-body">
-              <p class="card-text"><b>Cheese & Tomato Pizza</b></p>
-              <p class="text-muted">Pizza covered with cheese and a tomato base</p>
+              <p class="card-text"><b>Chicken Nuggets</b></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-lg btn-success">Select</button>
                 </div>
-                £12.99
+                £5.99
               </div>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Pepperoni Pizza</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Pepperoni</text></svg>
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Popcorn Chicken</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Popcorn Chicken</text></svg>
             <div class="card-body">
-              <p class="card-text"><b>Pepperoni Pizza</b></p>
-              <p class="text-muted">Tomato sauce base with a helping of pepperoni and mozerella cheese</p>
+              <p class="card-text"><b>Popcorn Chicken</b></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-lg btn-success">Select</button>
                 </div>
-                £14.99
+                £5.99
               </div>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>BBQ Chicken Pizza</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">BBQ Chicken</text></svg>
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Potato Wedges</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Potato Wedges</text></svg>
             <div class="card-body">
-              <p class="card-text"><b>BBQ Chicken</b></p>
-              <p class="text-muted">BBQ sauce with chargrilled chicken and onions</p>
+              <p class="card-text"><b>Potato Wedges</b></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-lg btn-success">Select</button>
                 </div>
-                £14.99
+                £5.99
               </div>
             </div>
           </div>
@@ -122,45 +119,42 @@
 
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Hawaiian Pizza</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Hawaiian</text></svg>
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Garlic Pizza Bread</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Garlic Pizza Bread</text></svg>
             <div class="card-body">
-              <p class="card-text"><b>Hawaiian</b></p>
-              <p class="text-muted">Tomato sauce base with mozzarella, ham and chunks of delicious pineapple</p>
+              <p class="card-text"><b>Garlic Pizza Bread</b></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-lg btn-success">Select</button>
                 </div>
-                £13.99
+                £4.99
               </div>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>American Hot Pizza</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">American Hot</text></svg>
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Nachos</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Nachos</text></svg>
             <div class="card-body">
-              <p class="card-text"><b>American Hot</b></p>
-              <p class="text-muted">Tomato base with mozerella cheese, spicy pepperoni and jalapeño peppers</p>
+              <p class="card-text"><b>Nachos</b></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-lg btn-success">Select</button>
                 </div>
-                £13.99
+                £4.99
               </div>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>The Works Pizza</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">The Works</text></svg>
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Spicy BBQ Wings</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Spicy BBQ Wings</text></svg>
             <div class="card-body">
-              <p class="card-text"><b>The Works</b></p>
-              <p class="text-muted">Everything on a tomato base: pepperoni, mozeralla cheese, ham, pineapple, mushrooms, onions, olives, and chargrilled chicken</p>
+              <p class="card-text"><b>Spicy BBQ Wings</b></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <button type="button" class="btn btn-lg btn-success">Select</button>
                 </div>
-                £15.50
+                £4.99
               </div>
             </div>
           </div>
