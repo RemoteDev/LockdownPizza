@@ -8,25 +8,9 @@
     <meta name="generator" content="Hugo 0.80.0">
     <title>Lockdown Pizza</title>
     <!-- Bootstrap core CSS -->
+<link href="css/style.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
   </head>
@@ -42,13 +26,13 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Offers</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pizzas</a>
+          <a class="nav-link" href="./pizzas.php">Pizzas</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Sides</a>
@@ -69,10 +53,7 @@
   </div>
 
 </main><!-- /.container -->
-
-
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-
-      
+    
   </body>
 </html>
