@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="The official Web App for Lockdown Pizza">
@@ -8,11 +8,11 @@
     <meta name="generator" content="Hugo 0.80.0">
     <title>Lockdown Pizza</title>
     <!-- Bootstrap core CSS -->
-<link href="css/style.css" rel="stylesheet">
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="https://remotedev.github.io/LockdownPizza/css/style.css" rel="stylesheet">
+<link href="https://remotedev.github.io/LockdownPizza/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
+    <link href="https://remotedev.github.io/LockdownPizza/starter-template.css" rel="stylesheet">
   </head>
   <body>
     
@@ -102,7 +102,7 @@
   </div>
 
 </main><!-- /.container -->
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://remotedev.github.io/LockdownPizza/js/bootstrap.bundle.min.js"></script>
     
   </body>
 </html>
