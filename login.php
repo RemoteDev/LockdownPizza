@@ -1,4 +1,5 @@
 <?php 
+include 'db_conn.php';
   session_start();
 
   if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) { 
@@ -45,6 +46,7 @@
 		  <button type="submit" 
 		          class="btn btn-primary">LOGIN
 		  </button>
+		  </div>
 		</form>
 	  </div>
 </body>

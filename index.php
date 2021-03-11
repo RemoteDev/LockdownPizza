@@ -53,6 +53,7 @@
   <div class="starter-template text-center py-5 px-3">
     <h1>Lockdown Pizza</h1>
     <p class="lead">Form for entering address and delivery/collection can go here.</p>
+    <a class="btn btn-warning" href="./logout.php">Logout</a>
   </div>
 
 </main><!-- /.container -->
