@@ -1,9 +1,9 @@
 <?php 
 
-$sName = "https://selene.hud.ac.uk/phpmyadmin/";
-$uName = "u1952998";
-$pass = "AA05mar21aa";
-$db_name = "u1952998";
+$sName = "localhost/phpmyadmin";
+$uName = "root";
+$pass = "";
+$db_name = "lockdown_pizza";
 
 try {
     $conn = new PDO("mysql:host=$sName;dbname=$db_name", 
