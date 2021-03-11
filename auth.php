@@ -12,7 +12,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	}else if (empty($password)){
 		header("Location: login.php?error=Password is required");
 	}else {
-		$stmt = $conn->prepare("SELECT * FROM users WHERE email_addr=?");
+		$stmt = $conn->prepare("SELECT * FROM users WHERE email=?");
 		$stmt->execute([$email]);
 
 		if ($stmt->rowCount() === 1) {

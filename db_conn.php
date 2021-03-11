@@ -1,6 +1,6 @@
 <?php 
 
-$sName = "localhost/phpmyadmin";
+$sName = "localhost";
 $uName = "root";
 $pass = "";
 $db_name = "lockdown_pizza";
