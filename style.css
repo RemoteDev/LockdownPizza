@@ -79,6 +79,10 @@
     background: transparent;
     
     border: 1;
-    border-color: black;
+    border-color: rgb(32, 32, 32);
     outline: 0;
+}
+
+.col {
+    padding: 5px;
 }
