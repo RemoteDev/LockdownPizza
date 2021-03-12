@@ -12,8 +12,22 @@ include 'db_conn.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Secure Login System PHP</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link href="https://remotedev.github.io/LockdownPizza/css/style.css" rel="stylesheet">
 </head>
 <body>
+<div class="wrapper">
+    <div class="boxes">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
 	  <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
 	  	<form class="p-5 rounded shadow" 
 	  	      action="auth.php"
