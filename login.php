@@ -12,10 +12,12 @@ include 'db_conn.php';
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Secure Login System PHP</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-	<link href="https://remotedev.github.io/LockdownPizza/css/style.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 <div class="wrapper">
+	<h3></h3>
     <div class="boxes">
         <div></div>
         <div></div>
@@ -27,13 +29,12 @@ include 'db_conn.php';
         <div></div>
         <div></div>
     </div>
-</div>
-	  <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-	  	<form class="p-5 rounded shadow" 
+	<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+	  	<form class="p-5 rounded shadow-lg border border-dark" 
 	  	      action="auth.php"
 	  	      method="post" 
 	  	      style="width: 30rem">
-	  		<h1 class="text-center pb-5 display-4">LOGIN</h1>
+	  		<h1 class="text-center pb-2 display-4">LOGIN</h1>
 	  		<?php if (isset($_GET['error'])) { ?>
 	  		<div class="alert alert-danger" role="alert">
 			  <?=$_GET['error']?>
@@ -45,7 +46,7 @@ include 'db_conn.php';
 		    </label>
 		    <input type="email" 
 		           name="email" 
-		           class="form-control" 
+		           class="form-control transparent" 
 		           id="exampleInputEmail1" aria-describedby="emailHelp">
 		  </div>
 		  <div class="mb-3">
@@ -53,16 +54,20 @@ include 'db_conn.php';
 		           class="form-label">Password
 		    </label>
 		    <input type="password" 
-		           class="form-control" 
+		           class="form-control transparent" 
 		           name="password" 
 		           id="exampleInputPassword1">
 		  </div>
+		  <div class = "col text-center">
 		  <button type="submit" 
-		          class="btn btn-primary">LOGIN
+		          class="btn btn-outline-dark btn-lg btn-block w-100">LOGIN
 		  </button>
+		  </div>
 		  </div>
 		</form>
 	  </div>
+</div>
+	  
 </body>
 </html>
 
