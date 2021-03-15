@@ -21,15 +21,18 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 			$user_id = $user['id'];
 			$user_email = $user['email'];
 			$user_password = $user['password'];
-			$user_full_name = $user['full_name'];
+			$user_first_name = $user['first_name'];
+			$user_last_name = $user['last_name'];
+			
 
 			if ($email === $user_email) {
                 header("Location: index.php");
 				if (password_verify($password, $user_password)) {
 					$_SESSION['user_id'] = $user_id;
 					$_SESSION['user_email'] = $user_email;
-					$_SESSION['user_full_name'] = $user_full_name;
-					header("Location: index.php");
+					$_SESSION['user_first_name'] = $user_first_name;
+					$_SESSION['user_last_name'] = $user_last_name;
+					header("Location: profile.php");
 
 				}else {
 					header("Location: login.php?error=Incorect User name or password");
