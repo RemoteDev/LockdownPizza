@@ -10,7 +10,7 @@
     <!-- Bootstrap core CSS -->
 <link href="css/stylesheet.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet">
-
+<link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="LockdownPizza/starter-template.css" rel="stylesheet">
   </head>
@@ -44,6 +44,8 @@
           <a class="nav-link active" aria-current="page" href="./desserts.php">Desserts</a>
         </li>
       </ul>
+      <a class="btn mx-1 btn-outline-light btn-lg float-left" href="./profile.php">Profile <i class="fa fa-user" aria-hidden="true"></i></a>
+      <a class="btn mx-1 btn-outline-light btn-lg float-right" href="./logout.php">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a>
     </div>
   </div>
 </nav>

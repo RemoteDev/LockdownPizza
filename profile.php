@@ -1,7 +1,17 @@
 <?php 
   session_start();
-
+  include 'db_conn.php';
   if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) { 
+
+  $stmt = $conn->prepare('SELECT * FROM users WHERE id=?');
+  $stmt->execute([$_SESSION['user_id']]);
+  $user = $stmt->fetch();
+            
+	$user_id = $user['id'];
+  $user_email = $user['email'];
+	$user_password = $user['password'];
+	$user_first_name = $user['first_name'];
+	$user_last_name = $user['last_name'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -17,8 +27,7 @@
     
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/stylesheet.css" rel="stylesheet">
 
   </head>
 <body>
@@ -58,11 +67,22 @@
 </nav>
 
 <main class="container">
-<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-<div class="wrapper"> 
-	  	
-		
-</div>
+<div class = "container mt-5">
+    <h3>Orders</h3>
+    <div class="table-respsonsive">
+      <table class="table table-bordered table-hover table-stripped">
+        <thead>
+          <tr class="bg-dark text-white">
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+      </div>
+
+    </div>
+  </div>
 
 </main><!-- /.container -->
 <script src="https://remotedev.github.io/LockdownPizza/js/bootstrap.bundle.min.js"></script>
