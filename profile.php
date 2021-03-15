@@ -5,6 +5,7 @@
 ?>
 <!doctype html>
 <html lang="en">
+<body>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,15 +14,14 @@
     <meta name="generator" content="Hugo 0.80.0">
     <title>Profile Page</title>
     <!-- Bootstrap core CSS -->
-<link href="https://remotedev.github.io/LockdownPizza/css/style.css" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
-<link href="https://remotedev.github.io/LockdownPizza/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://remotedev.github.io/LockdownPizza/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="https://remotedev.github.io/LockdownPizza/starter-template.css" rel="stylesheet">
     
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
   </head>
-  <body>
+<body>
     
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
@@ -51,18 +51,18 @@
           <a class="nav-link" href="./desserts.php">Desserts</a>
         </li>
       </ul>
-      
-      <a class="btn mx-1 btn-outline-light btn-lg float-left" href="./profile.php"><i class="fa fa-user-o" aria-hidden="true">Profile</i></a>
-      <a class="btn mx-1 btn-outline-light btn-lg float-right" href="./logout.php">Logout</a>
+      <a class="btn mx-1 btn-outline-light btn-lg float-left" href="./profile.php">Profile <i class="fa fa-user" aria-hidden="true"></i></a>
+      <a class="btn mx-1 btn-outline-light btn-lg float-right" href="./logout.php">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a>
     </div>
   </div>
 </nav>
 
 <main class="container">
-<svg class="glyphicon glyphicon-user" width="100%" height="225"  role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"></svg>
-  <div class="starter-template text-center py-5 px-3">
-    
-  </div>
+<div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+<div class="wrapper"> 
+	  	
+		
+</div>
 
 </main><!-- /.container -->
 <script src="https://remotedev.github.io/LockdownPizza/js/bootstrap.bundle.min.js"></script>

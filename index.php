@@ -13,11 +13,8 @@
     <meta name="generator" content="Hugo 0.80.0">
     <title>Lockdown Pizza</title>
     <!-- Bootstrap core CSS -->
-<link href="https://remotedev.github.io/LockdownPizza/css/style.css" rel="stylesheet">
-<link href="https://remotedev.github.io/LockdownPizza/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="https://remotedev.github.io/LockdownPizza/starter-template.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
     
