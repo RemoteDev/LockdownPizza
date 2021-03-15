@@ -16,7 +16,7 @@
 <link href="https://remotedev.github.io/LockdownPizza/css/style.css" rel="stylesheet">
 <link href="style.css" rel="stylesheet">
 <link href="https://remotedev.github.io/LockdownPizza/css/bootstrap.min.css" rel="stylesheet">
-<link href="path/to/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://remotedev.github.io/LockdownPizza/css/font-awesome.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="https://remotedev.github.io/LockdownPizza/starter-template.css" rel="stylesheet">
     
