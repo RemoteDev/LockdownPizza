@@ -13,7 +13,7 @@
     <meta name="generator" content="Hugo 0.80.0">
     <title>Lockdown Pizza</title>
     <!-- Bootstrap core CSS -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/stylesheet.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
