@@ -26,7 +26,7 @@
     
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/stylesheet.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 
   </head>
 <body>
@@ -68,18 +68,29 @@
 <main class="container">
 <div class="container">
     
-    <div class="row row-flex">
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="content bg-primary">
-          <h3>First column</h3>
-          <p>This one has a bit longer content</p>
-          <p>This one has a bit longer content</p>
+    <div class="row row-flex text-center">
+      <div class="col-md-6 mt-5 col-sm-6 col-xs-12">
+        <div class="content shadow-lg bg-dark border border-light rounded">
+            <h1>Welcome back, <?php echo $user_first_name . " " . $user_last_name?> </h1><br>
+            <img src="https://loremflickr.com/150/150/pizza" class="rounded-circle p-3"><br>
+            <p id="date" class="p-3"></p>
+          
         </div>
       </div>
-      <div class="col-md-4 col-sm-6 col-xs-12">
-        <div class="content bg-primary">
-          <h3>Second column</h3>
-          <p>Normal content.</p>
+      <div class="col-md-6 mt-5 col-sm-6 col-xs-12 ">
+        <div class="content shadow-lg bg-dark border border-light rounded">
+        <h1> Personal Details</h1> <br>
+              <h4 class="text-left">First Name: <?php echo $user_first_name?></h4><br>
+              <h4 class="text-left">Last Name: <?php echo $user_last_name?></h4><br>
+              <h4 class="text-left">Email Address: <?php echo $user_email?></h4><br>
+                <?php $stmt = $conn->prepare("SELECT postcode, house_name_num FROM addresses WHERE user_id=?");
+                      $stmt->execute([$user_id]);
+                      $user = $stmt->fetch();
+                      $user_postcode = $user['postcode'];
+                      $user_house_name_num = $user['house_name_num'];
+              ?>
+              <h4 class="text-left">Post Code: <?php echo $user_postcode?></h4><br>
+              <h4 class="text-left">Address: <?php echo $user_house_name_num?></h4><br>
         </div>
       </div>
   </div>

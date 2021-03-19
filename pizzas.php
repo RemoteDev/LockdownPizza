@@ -1,4 +1,7 @@
 <!doctype html>
+<?php 
+  include_once "db_conn.php";
+?>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -56,101 +59,36 @@
     <h1>Pizzas</h1>
   </div>
   
-  <div class="album py-5 bg-light">
+  <div class="album py-5 bg-light p-3">
     <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    
+            
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 bg-light">
+      <?php 
+          $stmt = $conn->prepare("SELECT * FROM menu WHERE food_type='pizza'");
+          $stmt->execute();
+          if($stmt->execute()) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+              ?>
         <div class="col">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Cheese & Tomato Pizza</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Cheese & Tomato</text></svg>
-            <div class="card-body">
-              <p class="card-text"><b>Cheese & Tomato Pizza</b></p>
-              <p class="text-muted">Pizza covered with cheese and a tomato base</p>
+            <div class="card-body bg-dark">
+              <p class="card-text"><b><?php echo $row['food_name'] ?></b></p>
+              <p class="text-muted"><?php echo $row['food_desc'] ?></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-success">Select</button>
+                  <form method="POST" action="/index.php?id=<?php echo $row['food_id'] ?>">
+                  <button type="submit" class="btn btn-outline-light btn-lg">Add To Cart</button>
+                  </form>
                 </div>
-                £12.99
+                <p class="text-light"><?php echo "£" . $row['food_price'] ?></p>
               </div>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Pepperoni Pizza</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Pepperoni</text></svg>
-            <div class="card-body">
-              <p class="card-text"><b>Pepperoni Pizza</b></p>
-              <p class="text-muted">Tomato sauce base with a helping of pepperoni and mozerella cheese</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-success">Select</button>
-                </div>
-                £14.99
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>BBQ Chicken Pizza</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">BBQ Chicken</text></svg>
-            <div class="card-body">
-              <p class="card-text"><b>BBQ Chicken</b></p>
-              <p class="text-muted">BBQ sauce with chargrilled chicken and onions</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-success">Select</button>
-                </div>
-                £14.99
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Hawaiian Pizza</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Hawaiian</text></svg>
-            <div class="card-body">
-              <p class="card-text"><b>Hawaiian</b></p>
-              <p class="text-muted">Tomato sauce base with mozzarella, ham and chunks of delicious pineapple</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-success">Select</button>
-                </div>
-                £13.99
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>American Hot Pizza</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">American Hot</text></svg>
-            <div class="card-body">
-              <p class="card-text"><b>American Hot</b></p>
-              <p class="text-muted">Tomato base with mozerella cheese, spicy pepperoni and jalapeño peppers</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-success">Select</button>
-                </div>
-                £13.99
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>The Works Pizza</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">The Works</text></svg>
-            <div class="card-body">
-              <p class="card-text"><b>The Works</b></p>
-              <p class="text-muted">Everything on a tomato base: pepperoni, mozeralla cheese, ham, pineapple, mushrooms, onions, olives, and chargrilled chicken</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-success">Select</button>
-                </div>
-                £15.50
-              </div>
-            </div>
-          </div>
-        </div>
+        <?php }
+          } ?>
       </div>
     </div>
   </div>
