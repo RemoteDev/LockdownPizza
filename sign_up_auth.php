@@ -31,14 +31,43 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['first_n
 		header("Location: signup.php?error=Post Code is required");
 	}
 	else {
-		$stmt = $conn->prepare("SELECT * FROM users WHERE email=?");
+		$stmt = $conn->prepare("SELECT * FROM customers WHERE email_addr=?");
 		$stmt->execute([$email]);
 		if($stmt->rowCount() > 0) {
 			header("Location: signup.php?error=Email Already Exists");
 		} else {
 			$password_hashed = password_hash($password, PASSWORD_DEFAULT);
-			$stmt = $conn->prepare("INSERT INTO users (first_name, email, password, address, last_name, post_code) VALUES (?,?,?,?,?,?)");
-			$stmt->execute([$first_name, $email, $password_hashed, $address, $last_name, $post_code]);
+
+			$stmt = $conn->prepare("INSERT INTO passwords (pw_id, password) VALUES (DEFAULT, ?)");
+			$stmt->execute([$password_hashed]);
+
+			$stmt = $conn->prepare("SELECT * FROM passwords where password=?");
+			$stmt->execute([$password_hashed]);
+
+			$pw = $stmt->fetch();
+			$pw_id = $pw['pw_id'];
+
+		    $stmt3 = $conn->prepare("INSERT INTO customers (cust_id, cust_forename, cust_surname, email_addr, pw_id) VALUES (DEFAULT,?,?,?,?)");
+			$stmt3->execute([$first_name, $last_name, $email, $pw_id]);
+
+			$stmt6 = $conn->prepare("SELECT cust_id FROM customers WHERE email_addr=?");
+			$stmt6->execute([$email]);
+
+			$customerid = $stmt6->fetch();
+			$cust_id = $customerid['cust_id'];
+
+			$stmt2 = $conn->prepare("INSERT INTO addresses (addr_id, user_id, house_name_num, postcode) VALUES (DEFAULT,?,?,?)");
+			$stmt2->execute([$cust_id, $address, $post_code]);
+
+			$stmt4 = $conn->prepare("SELECT addr_id FROM addresses WHERE user_id=?");
+			$stmt4->execute([$cust_id]);
+
+			$addressid = $stmt4->fetch();
+			$addr_id = $addressid['addr_id']; 
+
+			$stmt5 = $conn->prepare("UPDATE customers SET addr_id=? WHERE cust_id=?");
+			$stmt5->execute([$addr_id, $cust_id]);
+
 			header("Location: login.php?success=Successfully Registered! Please Login");
 		}
 

@@ -12,18 +12,23 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	}else if (empty($password)){
 		header("Location: login.php?error=Password is required");
 	}else {
-		$stmt = $conn->prepare('SELECT * FROM users WHERE email=?');
+		$stmt = $conn->prepare('SELECT * FROM customers WHERE email_addr=?');
 		$stmt->execute([$email]);
 
 		if ($stmt->rowCount() === 1) {
 			$user = $stmt->fetch();
             
-			$user_id = $user['id'];
-			$user_email = $user['email'];
-			$user_password = $user['password'];
-			$user_first_name = $user['first_name'];
-			$user_last_name = $user['last_name'];
+			$user_id = $user['cust_id'];
+			$user_email = $user['email_addr'];
+			$user_password_id = $user['pw_id'];
+			$user_first_name = $user['cust_forename'];
+			$user_last_name = $user['cust_surname'];
 			
+			$stmt = $conn->prepare("SELECT password FROM passwords WHERE pw_id=?");
+			$stmt->execute([$user_password_id]);
+
+			$user_pwidtopw = $stmt->fetch();
+			$user_password = $user_pwidtopw['password'];
 
 			if ($email === $user_email) {
                 header("Location: index.php");

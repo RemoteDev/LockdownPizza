@@ -3,15 +3,14 @@
   include 'db_conn.php';
   if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) { 
 
-  $stmt = $conn->prepare('SELECT * FROM users WHERE id=?');
+  $stmt = $conn->prepare('SELECT * FROM customers WHERE cust_id=?');
   $stmt->execute([$_SESSION['user_id']]);
   $user = $stmt->fetch();
             
-	$user_id = $user['id'];
-  $user_email = $user['email'];
-	$user_password = $user['password'];
-	$user_first_name = $user['first_name'];
-	$user_last_name = $user['last_name'];
+	$user_id = $user['cust_id'];
+  $user_email = $user['email_addr'];
+	$user_first_name = $user['cust_forename'];
+	$user_last_name = $user['cust_surname'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -67,26 +66,88 @@
 </nav>
 
 <main class="container">
+<div class="container">
+    
+    <div class="row row-flex">
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="content bg-primary">
+          <h3>First column</h3>
+          <p>This one has a bit longer content</p>
+          <p>This one has a bit longer content</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="content bg-primary">
+          <h3>Second column</h3>
+          <p>Normal content.</p>
+        </div>
+      </div>
+  </div>
+  </div>
+  
+<!-- <div class="d-flex flex-row justify-content-between align-items-center mt-5">
+    <div class="container text-white rounded shadow-lg bg-dark border border-dark m-3">
+        <div class="row is-table-row">
+            <div class="col text-center p-2"><h1>Welcome back, <?php echo $user_first_name . " " . $user_last_name?> </h1><br>
+            <img src="https://loremflickr.com/150/150/pizza" class="rounded-circle p-3"><br>
+            <p id="date" class="p-3"></p>              
+            </div>
+        </div>
+    </div>
+
+    <div class="container text-white rounded shadow-lg bg-dark border border-dark m-3">
+        <div class="row is-table-row">
+            <div class="col text-center p-2"><h1> Personal Details</h1> <br>
+              <h4>First Name: <?php echo $user_first_name?></h4><br>
+              <h4>Last Name: <?php echo $user_last_name?></h4><br>
+              <h4>Email Address: <?php echo $user_email?></h4><br>
+                <?php $stmt = $conn->prepare("SELECT postcode, house_name_num FROM addresses WHERE user_id=?");
+                      $stmt->execute([$user_id]);
+                      $user = $stmt->fetch();
+                      $user_postcode = $user['postcode'];
+                      $user_house_name_num = $user['house_name_num'];
+              ?>
+              <h4>Post Code: <?php echo $user_postcode?></h4><br>
+              <h4>Address: <?php echo $user_house_name_num?></h4>
+                
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
 <div class = "container mt-5">
     <h3>Orders</h3>
     <div class="table-respsonsive">
       <table class="table table-bordered table-hover table-stripped">
         <thead>
           <tr class="bg-dark text-white">
-            <th scope="col">ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
+            <th>Order ID</th>
+            <th>Order Items</th>
+            <th>Order Price</th>
           </tr>
+          <?php 
+          $stmt = $conn->prepare("SELECT * FROM orders WHERE usr_id=?");
+          $stmt->execute([$user_id]);
+          ?>
+          <?php foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
+            <tr>
+              <td><?php echo $row['order_id']; ?></td>
+              <td><?php echo $row['order_items']; ?></td>
+              <td><?php echo "£"; ?><?php echo $row['order_price']; ?></td>
+            </tr>
+          <?php endforeach;?>
         </thead>
+      </table>
       </div>
-
     </div>
   </div>
 
 </main><!-- /.container -->
 <script src="https://remotedev.github.io/LockdownPizza/js/bootstrap.bundle.min.js"></script>
-    
+<script>
+  document.getElementById("date").innerHTML = Date();
+</script>
   </body>
 </html>
 <?php 
