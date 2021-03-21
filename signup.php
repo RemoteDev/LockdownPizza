@@ -111,4 +111,3 @@ if (!isset($_SESSION['user_id']) && !isset($_SESSION['user_email'])) {
    header("Location: signup.php");
 }
  ?>
- 
