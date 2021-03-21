@@ -70,7 +70,7 @@ include 'db_conn.php';
 		  </div>
 		  <div class = "col text-center">
 		  <button type="submit" 
-		          class="btn btn-outline-dark btn-lg float-left text-light"><a href="signup.php" class="text-decoration-none text-reset">SIGN UP</a>
+		          class="btn btn-outline-dark btn-lg float-left"><a href="signup.php" class="text-decoration-none text-reset">SIGN UP</a>
 		  </button>
 		  <button type="submit" 
 		          class="btn btn-outline-dark btn-lg float-right"><a href="staff.php" class="text-decoration-none text-reset">STAFF</a>
