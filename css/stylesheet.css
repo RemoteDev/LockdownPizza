@@ -1,6 +1,14 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
     background-color: #090C10 !important;
     padding-top: 70px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .row-flex {
@@ -21,3 +29,12 @@ body {
     color: #fff;
   }
   
+  .navbar {
+    background-color: #161B22 !important;
+  }
+
+  footer {
+    flex-grow: 0;
+    padding: 15px 0;
+    display: block;
+  }

@@ -16,36 +16,36 @@
   </head>
   <body>
     
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Lockdown Pizza</a>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top text-light">
+  <div class="container-fluid ">
+    <a class="navbar-brand" href="#"><i class="fas fa-pizza-slice"></i></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+    <div class="collapse navbar-collapse" id="navbarsSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0 ">
         <li class="nav-item">
-          <a class="nav-link" href="./index.php">Home</a>
+          <a class="nav-link" aria-current="page" href="./index.php">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./deals.php">Deals</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="./pizzas.php">Pizzas</a>
+          <a class="nav-link" href="./pizzas.php">Pizzas</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./sides.php">Sides</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="./drinks.php">Drinks</a>
+          <a class="nav-link active" href="./drinks.php">Drinks</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./desserts.php">Desserts</a>
         </li>
       </ul>
-      <a class="btn mx-1 btn-outline-light btn-lg float-left" href="./profile.php">Profile <i class="fa fa-user" aria-hidden="true"></i></a>
-      <a class="btn mx-1 btn-outline-light btn-lg float-right" href="./logout.php">Logout <i class="fa fa-sign-out" aria-hidden="true"></i></a>
+      <a class="btn mx-1 btn-outline-light btn-lg float-left" href="./profile.php">Profile <i class="fas fa-user" aria-hidden="true"></i></a>
+      <a class="btn mx-1 btn-outline-light btn-lg float-right" href="./logout.php">Logout <i class="fas fa-sign-out-alt" aria-hidden="true"></i></a>
     </div>
   </div>
 </nav>
@@ -154,8 +154,18 @@
       </div>
     </div>
   </div>
-
+  
 </main><!-- /.container -->
+<footer class="footer">
+  <!-- Copyright -->
+  <div class="container">
+  <div class="text-center p-3">
+    © 2020 Copyright: <a href="./index.php" class="text-decoration-underlined text-white">Lockdown Pizza LTD</a>
+  </div>
+  </container>
+  <!-- Copyright -->
+</footer>
 <script src="https://remotedev.github.io/LockdownPizza/js/bootstrap.bundle.min.js"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
   </body>
 </html>
