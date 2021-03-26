@@ -74,9 +74,9 @@
               ?>
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Cheese & Tomato Pizza</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Cheese & Tomato</text></svg>
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Image</text></svg>
             <div class="card-body bg-dark">
-              <p class="card-text"><b><?php echo $row['food_name'] ?></b></p>
+              <p class="card-text" style="color:white"><b><?php echo $row['food_name'] ?></b></p>
               <p class="text-muted"><?php echo $row['food_desc'] ?></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
