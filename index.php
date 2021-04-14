@@ -1,8 +1,3 @@
-<?php 
-  session_start();
-
-  if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) { 
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -63,22 +58,22 @@
   <div class="mySlides">
     <div class="numbertext">1 / 4</div>
     <a href="./pizzas.php"><img src="images\pepperoni.jpg" alt="Pepperoni Pizza" class="img-thumbnail" style="width:100%; height:400px"></a>
-    <div class="text"><h3>Pizza Party!</h3>Have yourself a feast with pizzas cooked fresh from the oven!</div>
+    <div class="text" style="background-color:black"><h3>Pizza Party!</h3>Have yourself a feast with pizzas cooked fresh from the oven!</div>
   </div>
   <div class="mySlides">
     <div class="numbertext">2 / 4</div>
-    <a href="./sides.php"><img src="images\nachos.jpg" alt="Nachos" class="img-thumbnail" style="width:100%; height:400px"></a>
-    <div class="text"><h3>Sides To Make You Salivate!</h3>Nothing goes with pizza like a tasty side order!</div>
+    <a href="./sides.php"><img src="images\cheesy nachos.jpg" alt="Nachos" class="img-thumbnail" style="width:100%; height:400px"></a>
+    <div class="text" style="background-color:black"><h3>Sides To Make You Salivate!</h3>Nothing goes with pizza like a tasty side order!</div>
   </div>
   <div class="mySlides">
     <div class="numbertext">3 / 4</div>
     <a href="./drinks.php"><img src="images\drinks.jpg" alt="Drinks" class="img-thumbnail" style="width:100%; height:400px"></a>
-    <div class="text"><h3>Refresh Yourself!</h3>Quench your thirst with our range of soft drinks!</div>
+    <div class="text" style="background-color:black"><h3>Refresh Yourself!</h3>Quench your thirst with our range of soft drinks!</div>
   </div>
   <div class="mySlides">
     <div class="numbertext">4 / 4</div>
-    <a href="./drinks.php"><img src="images\chocolate cookies.jpg" alt="Chocolate Cookies" class="img-thumbnail" style="width:100%; height:400px"></a>
-    <div class="text"><h3>Yum-Yum!</h3>Add the finishing touch to your meal with one of our delicious desserts!</div>
+    <a href="./drinks.php"><img src="images\cookies.jpg" alt="Chocolate Cookies" class="img-thumbnail" style="width:100%; height:400px"></a>
+    <div class="text" style="background-color:black"><h3>Yum-Yum!</h3>Add the finishing touch to your meal with one of our delicious desserts!</div>
   </div>
   <!-- Next and previous buttons -->
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -167,12 +162,6 @@ All our pizzas are cooked with fresh ingredients, from our grass-fed ground beef
   </div>
   <!-- End of image gallery section -->
 
-</div>
-
-    <p class="lead">Form for entering address and delivery/collection can go here.</p>
-    <a class="btn btn-warning" href="./logout.php">Logout</a>
-  </div>
-
 </main><!-- /.container -->
 
 <footer class="footer">
@@ -189,8 +178,4 @@ All our pizzas are cooked with fresh ingredients, from our grass-fed ground beef
     
   </body>
 </html>
-<?php 
-}else {
-   header("Location: login.php");
-}
- ?>
+
