@@ -1,4 +1,9 @@
 <!doctype html>
+<?php
+  session_start(); 
+  include_once "db_conn.php";
+  ?>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -15,6 +20,56 @@
     <link href="LockdownPizza/starter-template.css" rel="stylesheet">
   </head>
   <body>
+
+  <!--script to stop unselected items being added to cart when the page is refreshed-->
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+
+<?php
+//php to add an item to the cart
+if (isset($_POST['submit'])) {
+    $name = $_POST["fname"];
+    $order_item = array($name => array('name' => $_POST["fname"], 'price' => $_POST["fprice"],'quantity' => $_POST["fquantity"]));
+
+    if (!empty($_SESSION["cart"])){ //if the cart is not empty
+        if(array_key_exists($name,($_SESSION["cart"]))) { //if the item just added already exists in the cart
+        foreach ($_SESSION["cart"] as $fkey => $fvalue) {
+            if ($name == $fkey) {
+                $_SESSION["cart"][$fkey]["quantity"] += 1; //increase the quantity of the item by one
+            }
+        }
+    }
+    else {
+        $_SESSION["cart"] = array_merge($_SESSION["cart"], $order_item); //add new item to the cart  
+        }
+    }
+    else { //if no items yet in the cart
+        $_SESSION["cart"] = $order_item; //make the item the first item of the cart
+    }  
+}
+
+//function to remove a specific item from the cart
+function removeItem()
+{
+    $item_to_remove = $_POST["rmvItem"];
+    if(array_key_exists($item_to_remove,($_SESSION["cart"]))) {
+        foreach ($_SESSION["cart"] as $fkey => $fvalue) {
+            if ($item_to_remove == $fkey) {
+                unset($_SESSION["cart"][$fkey]);
+                if(empty($_SESSION["cart"]))
+                unset($_SESSION["cart"]);
+            }
+        }
+    }
+}
+if(array_key_exists('remove',$_POST)){
+   removeItem();
+}
+
+?>
     
   <nav class="navbar navbar-expand-md navbar-dark fixed-top text-light">
   <div class="container-fluid ">
@@ -53,101 +108,127 @@
 <main class="container">
 
   <div class="starter-template text-center py-5 px-3">
-    <h1>Sides</h1>
+    <h1 style="color:white">Sides</h1>
   </div>
   
   <div class="album py-5 bg-light">
     <div class="container">
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Chicken Nuggets</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Chicken Nuggets</text></svg>
-            <div class="card-body">
-              <p class="card-text"><b>Chicken Nuggets</b></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-success">Select</button>
-                </div>
-                £5.99
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Popcorn Chicken</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Popcorn Chicken</text></svg>
-            <div class="card-body">
-              <p class="card-text"><b>Popcorn Chicken</b></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-success">Select</button>
-                </div>
-                £5.99
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Potato Wedges</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Potato Wedges</text></svg>
-            <div class="card-body">
-              <p class="card-text"><b>Potato Wedges</b></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-success">Select</button>
-                </div>
-                £5.99
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- cart section --->
+<div id="shopping-cart">
+<div class="txt-heading">Your Order</div>
 
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Garlic Pizza Bread</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Garlic Pizza Bread</text></svg>
-            <div class="card-body">
-              <p class="card-text"><b>Garlic Pizza Bread</b></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-success">Select</button>
-                </div>
-                £4.99
-              </div>
-            </div>
+<form method="post">
+    <input type="submit" name="empty" id="empty" value="EMPTY BASKET" /><br/>
+</form>
+
+<?php
+function emptyBasket()
+{
+    unset($_SESSION["cart"]);
+}
+
+if(array_key_exists('empty',$_POST)){
+   emptyBasket();
+}
+?>
+
+<?php
+if(isset($_SESSION["cart"])){
+    $total_quantity = 0;
+    $total_price = 0;
+?>
+
+<table class="tbl-cart" cellpadding="10" cellspacing="1">
+    <tbody>
+        <tr>
+            <th style="text-align:left;">Item</th>
+            <th style="text-align:right;" width="5%">Quantity</th>
+            <th style="text-align:right;" width="10%">Price</th>
+            <th style="text-align:center;" width="5%">Remove</th>
+        </tr>
+    <?php		
+        foreach ($_SESSION["cart"] as $item){
+            $item_price = $item["quantity"]*$item["price"];
+	?>
+    	<tr>
+			<td><?php echo $item["name"]; ?></td>
+			<td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
+			<td style="text-align:right;"><?php echo "£ ". number_format($item_price,2); ?></td>
+            <td style="text-align:right;">
+              <form method="post">
+                  <input type = "hidden" name = "rmvItem" value = "<?php echo $item["name"]; ?>">
+                  <input type="submit" name="remove" id="remove" value="Remove"/><br/>
+              </form>
+            </td>
+		</tr>
+	<?php
+		$total_quantity += $item["quantity"];
+		$total_price += ($item["price"]*$item["quantity"]);
+	}
+	?>	
+
+        <tr>
+            <td colspan="1" style="text-align:right;">Total:</td>
+            <td style="text-align:right;"><?php echo $total_quantity; ?></td>
+            <td style="text-align:right;"><strong><?php echo "£ ".number_format($total_price, 2); ?></strong></td>
+            <td style="text-align:right;">
+              <form method="post" action="checkout.php">
+                <input type="submit" name="checkout" id="checkout" value="Complete Order"/><br/>
+                </form>
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+<?php
+} else {
+?>
+<div class="no-records">Your Cart is Empty</div>
+<?php 
+}
+?>
+</div>
+
+<!--section displaying products from database -->
+<div id="product-grid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 bg-light">
+	<?php
+  $query = ("SELECT * FROM menu WHERE food_type='side'");
+	$pizzas = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);
+	if (!empty($pizzas)) { 
+		foreach($pizzas as $pizza){
+	?>
+		<div class="product-item">
+      <div class="col">
+        <div class="card shadow-sm">
+          <div class="product-image"><img alt="<?php echo $pizza ['food_name'] ?>" width="100%" height="225" src="<?php echo $pizza ['food_image']; ?>"></div>
+          <div class="product-tile-footer">
+          <div class="card-body bg-dark">
+			      <p class="card-text" style="color:white"><b><?php echo $pizza ['food_name'] ?></b></p>
+            <p class="text-muted"><?php echo $pizza ['food_desc'] ?></p>
+          <div class="d-flex justify-content-between align-items-center">
+			    <div class="btn-group">
+            <form class = "form-submit" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = "POST">
+              <input type = "hidden" name = "fname" value = "<?php echo $pizza ['food_name'] ?>">
+              <input type = "hidden" name = "fprice" value = "<?php echo $pizza ['food_price'] ?>">
+              <input type="hidden" class="product-quantity" name="fquantity" value="1" size="2" />
+              <button type = "submit" name = "submit" class="btn btn-outline-light btn-lg addToCart">Add To Cart</button>
+            </form>
           </div>
+          <p class="text-light"><?php echo "£" . number_format($pizza ['food_price'], 2) ?></p>
         </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Nachos</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Nachos</text></svg>
-            <div class="card-body">
-              <p class="card-text"><b>Nachos</b></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-success">Select</button>
-                </div>
-                £4.99
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Spicy BBQ Wings</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Spicy BBQ Wings</text></svg>
-            <div class="card-body">
-              <p class="card-text"><b>Spicy BBQ Wings</b></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-success">Select</button>
-                </div>
-                £4.99
-              </div>
-            </div>
-          </div>
-        </div>
+			  </div>
       </div>
+		</div>
     </div>
   </div>
+	<?php
+		}
+	}
+	?>
+</div>
   
 </main><!-- /.container -->
 <footer class="footer">
