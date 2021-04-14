@@ -30,6 +30,12 @@
 
   </head>
 <body>
+
+<?php if (isset($_GET['success'])) { ?>
+	  		<div class="alert alert-success" role="alert">
+			  <?=$_GET['success']?>
+			</div>
+		    <?php } ?>
     
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
@@ -128,7 +134,7 @@
 
 
 <div class = "container mt-5">
-    <h3>Orders</h3>
+    <h3 style="color:white">Orders</h3>
     <div class="table-respsonsive">
       <table class="table table-bordered table-hover table-stripped">
         <thead>
@@ -136,6 +142,7 @@
             <th>Order ID</th>
             <th>Order Items</th>
             <th>Order Price</th>
+            <th>Order Status</th>
           </tr>
           <?php 
           $stmt = $conn->prepare("SELECT * FROM orders WHERE usr_id=?");
@@ -143,9 +150,10 @@
           ?>
           <?php foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) : ?>
             <tr>
-              <td><?php echo $row['order_id']; ?></td>
-              <td><?php echo $row['order_items']; ?></td>
-              <td><?php echo "£"; ?><?php echo $row['order_price']; ?></td>
+              <td style="color:white"><?php echo $row['order_id']; ?></td>
+              <td style="color:white"><?php echo $row['order_items']; ?></td>
+              <td style="color:white"><?php echo "£"; ?><?php echo $row['order_price']; ?></td>
+              <td style="color:white"><?php echo $row['order_status']; ?></td>
             </tr>
           <?php endforeach;?>
         </thead>
