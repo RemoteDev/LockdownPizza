@@ -72,9 +72,6 @@ include 'db_conn.php';
 		  <button type="submit" 
 		          class="btn btn-outline-dark btn-lg float-left"><a href="signup.php" class="text-decoration-none text-reset">SIGN UP</a>
 		  </button>
-		  <button type="submit" 
-		          class="btn btn-outline-dark btn-lg float-right"><a href="staff.php" class="text-decoration-none text-reset">STAFF</a>
-		  </button>
 		  </div>
 		  </div>
 		</form>
