@@ -1,4 +1,21 @@
 <!doctype html>
+<?php
+  session_start(); 
+  include_once "db_conn.php";
+  if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) { 
+  $stmt = $conn->prepare('SELECT * FROM customers WHERE cust_id=?');
+  $stmt->execute([$_SESSION['user_id']]);
+  $user = $stmt->fetch();
+            
+  $privileges = $user['cust_privileges'];
+  $log_link = "./logout.php";
+  $log_label = "Logout";
+  } else {
+    $privileges = NULL;
+    $log_link = "./login.php";
+    $log_label = "Login";
+  }
+  ?>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -45,7 +62,12 @@
         </li>
       </ul>
       <a class="btn mx-1 btn-outline-light btn-lg float-left" href="./profile.php">Profile <i class="fas fa-user" aria-hidden="true"></i></a>
-      <a class="btn mx-1 btn-outline-light btn-lg float-right" href="./logout.php">Logout <i class="fas fa-sign-out-alt" aria-hidden="true"></i></a>
+      <?php
+      if ($privileges=='staff'){ 
+        ?>
+        <a class="btn mx-1 btn-outline-light btn-lg float-right" href="./staff_portal.php">Staff Portal <i class="fas fa-sign-out-alt" aria-hidden="true"></i></a>
+       <?php } ?>
+       <a class="btn mx-1 btn-outline-light btn-lg float-right" href="<?php echo $log_link?>"><?php echo $log_label?><i class="fas fa-sign-out-alt" aria-hidden="true"></i></a>
     </div>
   </div>
 </nav>
