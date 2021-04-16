@@ -265,6 +265,11 @@ if(isset($_SESSION["cart"])){
     </div>
   </div>
 
+  <?php
+  $stmt = $conn->prepare("SELECT * FROM payments WHERE usr_id=?");
+  $stmt->execute([$_SESSION['user_id']]);
+  if ($stmt->rowCount() > 0) {
+    ?>
   <div class="col-md-6 mt-5 col-sm-6 col-xs-12 ">
         <div class="content shadow-lg bg-dark border border-light rounded" style="min-height: 100vh;">
         <form class="p-5 rounded shadow-lg border border-dark" 
@@ -340,6 +345,9 @@ if(isset($_SESSION["cart"])){
 		  </div>
 		</form>
 	  </div>
+    <?php
+        }
+        ?>
 
     <div class="col-md-6 mt-5 col-sm-6 col-xs-12 ">
         <div class="content shadow-lg bg-dark border border-light rounded" style="min-height: 100vh;">
