@@ -332,7 +332,7 @@ if(isset($_SESSION["cart"])){
 		    <label for="cvvInput" 
 		           class="form-label">CVV
 		    </label>
-		    <input type="text" 
+		    <input type="password" 
 		           name="cvv" 
 		           class="form-control transparent" 
 		           id="cvvInput" aria-describedby="cvvHelp"
