@@ -1,15 +1,31 @@
 <?php 
   session_start();
   include 'db_conn.php';
-  if (isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) { 
+  //only allow access to this page if user is logged in and they have a cart containing at least one item
+  if (isset($_SESSION['user_id']) && isset($_SESSION['user_email']) && isset($_SESSION["cart"])) { 
 
     $stmt = $conn->prepare('SELECT * FROM customers WHERE cust_id=?');
     $stmt->execute([$_SESSION['user_id']]);
     $user = $stmt->fetch();
-            
-    $user_id = $user['cust_id'];
-    $user_payment = $user['cust_payment'];
 
+    $user_id = $user['cust_id'];
+    $user_addr = $user['addr_id'];
+    $privileges = $user['cust_privileges'];
+
+    $stmt = $conn->prepare('SELECT * FROM payments WHERE usr_id=?');
+    $stmt->execute([$_SESSION['user_id']]);
+    if($stmt->rowCount() > 0) {
+    $card_details = $stmt->fetch();
+            
+    $user_payment_id = $card_details['usr_id'];
+    $card_details_name = $card_details['card_name'];
+    $card_details_number = $card_details['card_number'];
+    $card_details_expiry = $card_details['expiry_date'];
+    }
+
+    else{
+      $user_payment_id = NULL;
+    }
     
 ?>
 <!doctype html>
@@ -70,6 +86,11 @@ if (!empty($_SESSION["cart"])){ //if the cart is not empty
       </ul>
       
       <a class="btn mx-1 btn-outline-light btn-lg float-left" href="./profile.php">Profile <i class="fas fa-user" aria-hidden="true"></i></a>
+      <?php
+      if ($privileges=='staff'){ 
+        ?>
+        <a class="btn mx-1 btn-outline-light btn-lg float-right" href="./staff_portal.php">Staff Portal <i class="fas fa-sign-out-alt" aria-hidden="true"></i></a>
+       <?php } ?>
       <a class="btn mx-1 btn-outline-light btn-lg float-right" href="./logout.php">Logout <i class="fas fa-sign-out-alt" aria-hidden="true"></i></a>
     </div>
   </div>
@@ -84,7 +105,7 @@ if (!empty($_SESSION["cart"])){ //if the cart is not empty
   <div class="album py-5 bg-light p-3">
     <div class="container">
 
-    <!--copied from pizzas.php -->
+
     <!-- cart section --->
 <div id="shopping-cart">
 <div class="txt-heading">Your Order Details</div>
@@ -135,18 +156,14 @@ if(isset($_SESSION["cart"])){
 ?>
 </div>
 
-    <!--section after copied section -->
-
-
-
 <div class="container">
     
     <div class="row row-flex text-center">
       <div class="col-md-6 mt-5 col-sm-6 col-xs-12">
         <div class="content shadow-lg bg-dark border border-light rounded">
         <h1> Delivery Details</h1> <br>
-        <?php $stmt = $conn->prepare("SELECT postcode, house_name_num FROM addresses WHERE user_id=?");
-                      $stmt->execute([$user_id]);
+        <?php $stmt = $conn->prepare("SELECT postcode, house_name_num FROM addresses WHERE addr_id=?");
+                      $stmt->execute([$user_addr]);
                       $user = $stmt->fetch();
                       $user_postcode = $user['postcode'];
                       $user_house_name_num = $user['house_name_num'];
@@ -158,23 +175,13 @@ if(isset($_SESSION["cart"])){
     </div>
 
     <?php
-    if ($user_payment != NULL) {
+    if ($user_payment_id != NULL) {
       ?>
 
     <div class="col-md-6 mt-5 col-sm-6 col-xs-12 ">
         <div class="content shadow-lg bg-dark border border-light rounded">
             <h1> Payment Details</h1> <br>
-            <?php $stmt = $conn->prepare("SELECT cust_payment FROM customers WHERE cust_id=?");
-            $stmt->execute([$user_id]);
-            $cp = $stmt->fetch();
-            $cust_pay = $cp['cust_payment'];
-            $stmt = $conn->prepare("SELECT card_name, card_number, expiry_date FROM payments WHERE payment_id=?");
-            $stmt->execute([$cust_pay]);
-            $card_details = $stmt->fetch();
-            $card_details_name = $card_details['card_name'];
-            $card_details_number = $card_details['card_number'];
-            $card_details_expiry = $card_details['expiry_date'];
-            ?>
+            
             <h4 class="text-left">Card Name: <?php echo $card_details_name?></h4><br>
             <h4 class="text-left">Card Number: <?php echo $card_details_number?></h4><br>
             <h4 class="text-left">Card Expiry Date: <?php echo $card_details_expiry?></h4><br>
@@ -196,7 +203,7 @@ if(isset($_SESSION["cart"])){
     <div class="col-md-6 mt-5 col-sm-6 col-xs-12 ">
         <div class="content shadow-lg bg-dark border border-light rounded" style="min-height: 100vh;">
         <form class="p-5 rounded shadow-lg border border-dark" 
-	  	      action="checkout_auth.php"
+	  	      action="payment_auth.php"
 	  	      method="post" 
 	  	      style="width: 30rem">
 	  		<h1 class="text-center pb-2 display-4">Add Payment Card</h1>
@@ -274,11 +281,7 @@ if(isset($_SESSION["cart"])){
     }
     ?>
         
-        
-
 </div>
-
-
 
   </body>
   </html>
