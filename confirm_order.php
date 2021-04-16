@@ -1,5 +1,6 @@
 <?php 
 session_start();
+//php to add the order to the database.
 include 'db_conn.php';
 
 $order_user = $_POST['orderUser'];
