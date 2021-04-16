@@ -56,17 +56,24 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['first_n
 			$customerid = $stmt6->fetch();
 			$cust_id = $customerid['cust_id'];
 
-			$stmt2 = $conn->prepare("INSERT INTO addresses (addr_id, user_id, house_name_num, postcode) VALUES (DEFAULT,?,?,?)");
-			$stmt2->execute([$cust_id, $address, $post_code]);
-
-			$stmt4 = $conn->prepare("SELECT addr_id FROM addresses WHERE user_id=?");
-			$stmt4->execute([$cust_id]);
-
+			$stmt4 = $conn->prepare("SELECT addr_id FROM addresses WHERE house_name_num=? AND postcode=?");
+			$stmt4->execute([$address,$post_code]);
+			if ($stmt4->rowCount() > 0) { //if the address of the new customer already exists in the db, assign them the existing address.
+				$addressid = $stmt4->fetch();
+				$addr_id = $addressid['addr_id']; 
+				$stmt5 = $conn->prepare("UPDATE customers SET addr_id=? WHERE cust_id=?");
+				$stmt5->execute([$addr_id, $cust_id]);
+			}
+			else { //else add the new address and assign it to the new customer.
+			$stmt2 = $conn->prepare("INSERT INTO addresses (addr_id, house_name_num, postcode) VALUES (DEFAULT,?,?)");
+			$stmt2->execute([$address, $post_code]);
+			$stmt4 = $conn->prepare("SELECT addr_id FROM addresses WHERE house_name_num=? AND postcode=?");
+			$stmt4->execute([$address,$post_code]);
 			$addressid = $stmt4->fetch();
 			$addr_id = $addressid['addr_id']; 
-
 			$stmt5 = $conn->prepare("UPDATE customers SET addr_id=? WHERE cust_id=?");
 			$stmt5->execute([$addr_id, $cust_id]);
+			}
 
 			header("Location: login.php?success=Successfully Registered! Please Login");
 		}
