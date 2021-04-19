@@ -270,8 +270,12 @@ if(isset($_SESSION["cart"])){
   $stmt->execute([$_SESSION['user_id']]);
   if ($stmt->rowCount() > 0) {
     ?>
-  <div class="col-md-6 mt-5 col-sm-6 col-xs-12 ">
-        <div class="content shadow-lg bg-dark border border-light rounded" style="min-height: 100vh;">
+
+</div>
+    
+    <div class="row row-flex text-center">
+      <div class="col-md-6 mt-5 col-sm-6 col-xs-12">
+        <div class="content shadow-lg bg-dark border border-light rounded">
         <form class="p-5 rounded shadow-lg border border-dark" 
 	  	      action="payment_edit_auth.php"
 	  	      method="post" 
@@ -340,17 +344,14 @@ if(isset($_SESSION["cart"])){
 				   title="Enter a 3 digit number.">
 		  </div>
 		  		  <button type="submit" style="color:white"
-		          class="btn btn-lg btn-outline-dark btn-lg btn-block w-100">Edit Card
+		          class="btn btn-lg btn-outline-light btn-lg btn-block w-100">Edit Card
 		  </button>
 		  </div>
 		</form>
-	  </div>
-    <?php
-        }
-        ?>
-
-    <div class="col-md-6 mt-5 col-sm-6 col-xs-12 ">
-        <div class="content shadow-lg bg-dark border border-light rounded" style="min-height: 100vh;">
+        </div>
+      </div>
+      <div class="col-md-6 mt-5 col-sm-6 col-xs-12 ">
+        <div class="content shadow-lg bg-dark border border-light rounded">
         <form class="p-5 rounded shadow-lg border border-dark" 
 	  	      action="address_auth.php"
 	  	      method="post" 
@@ -383,11 +384,19 @@ if(isset($_SESSION["cart"])){
 
 		  </div>
 		  		  <button type="submit" style="color:white"
-		          class="btn btn-lg btn-outline-dark btn-lg btn-block w-100">Edit Address
+		          class="btn btn-lg btn-outline-light btn-lg btn-block w-100">Edit Address
 		  </button>
 		  </div>
 		</form>
-	  </div>
+        </div>
+        <?php
+        }
+        ?>
+      </div>
+  </div>
+  </div>
+  
+  
 
 </main><!-- /.container -->
 <script src="https://remotedev.github.io/LockdownPizza/js/bootstrap.bundle.min.js"></script>

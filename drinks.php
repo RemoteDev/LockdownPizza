@@ -129,12 +129,12 @@ if(array_key_exists('remove',$_POST)){
     <h1 style="color:white">Drinks</h1>
   </div>
   
-  <div class="album py-5 bg-light">
+  <div class="album py-5 bg-dark">
     <div class="container">
 
             <!-- cart section --->
 <div id="shopping-cart">
-<div class="txt-heading">Your Order</div>
+<div class="txt-heading" style="color:white">Your Order</div>
 
 <form method="post">
     <input type="submit" name="empty" id="empty" value="EMPTY BASKET" /><br/>
@@ -157,7 +157,7 @@ if(isset($_SESSION["cart"])){
     $total_price = 0;
 ?>
 
-<table class="tbl-cart" cellpadding="10" cellspacing="1">
+<table class="tbl-cart" style="color:white" cellpadding="10" cellspacing="1">
     <tbody>
         <tr>
             <th style="text-align:left;">Item</th>
@@ -203,15 +203,15 @@ if(isset($_SESSION["cart"])){
 <?php
 } else {
 ?>
-<div class="no-records">Your Cart is Empty</div>
+<div class="no-records" style="color:white">Your Cart is Empty</div>
 <?php 
 }
 ?>
 </div>
 
 <!--section displaying products from database -->
-<div id="product-grid">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 bg-light">
+<div id="product-grid bg-dark">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 bg-dark">
 	<?php
   $query = ("SELECT * FROM menu WHERE food_type='drink'");
 	$pizzas = $conn->query($query)->fetchAll(PDO::FETCH_ASSOC);

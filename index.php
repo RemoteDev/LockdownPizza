@@ -43,7 +43,7 @@
     <div class="collapse navbar-collapse" id="navbarsSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-md-0 ">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
+          <a class="nav-link" aria-current="page" href="./index.php">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./deals.php">Deals</a>
@@ -75,27 +75,27 @@
 <main class="container">
 <!-- Start of carousel section -->
 <!-- Slideshow container -->
-<div class="slideshow-container">
+<div class="slideshow-container ">
   <!-- Full-width images with number and caption text -->
   <div class="mySlides">
     <div class="numbertext">1 / 4</div>
-    <a href="./pizzas.php"><img src="images\pepperoni.jpg" alt="Pepperoni Pizza" class="img-thumbnail" style="width:100%; height:400px"></a>
-    <div class="text" style="background-color:black"><h3>Pizza Party!</h3>Have yourself a feast with pizzas cooked fresh from the oven!</div>
+    <a href="./pizzas.php"><img src="images\pepperoni.jpg" alt="Pepperoni Pizza"  style="width:100%; height:400px"></a>
+    <div class="text" style="background-color:#161B22"><h3>Pizza Party!</h3>Have yourself a feast with pizzas cooked fresh from the oven!</div>
   </div>
   <div class="mySlides">
     <div class="numbertext">2 / 4</div>
-    <a href="./sides.php"><img src="images\cheesy nachos.jpg" alt="Nachos" class="img-thumbnail" style="width:100%; height:400px"></a>
-    <div class="text" style="background-color:black"><h3>Sides To Make You Salivate!</h3>Nothing goes with pizza like a tasty side order!</div>
+    <a href="./sides.php"><img src="images\cheesy nachos.jpg" alt="Nachos"  style="width:100%; height:400px"></a>
+    <div class="text" style="background-color:#161B22"><h3>Sides To Make You Salivate!</h3>Nothing goes with pizza like a tasty side order!</div>
   </div>
   <div class="mySlides">
     <div class="numbertext">3 / 4</div>
-    <a href="./drinks.php"><img src="images\drinks.jpg" alt="Drinks" class="img-thumbnail" style="width:100%; height:400px"></a>
-    <div class="text" style="background-color:black"><h3>Refresh Yourself!</h3>Quench your thirst with our range of soft drinks!</div>
+    <a href="./drinks.php"><img src="images\drinks.jpg" alt="Drinks"  style="width:100%; height:400px"></a>
+    <div class="text" style="background-color:#161B22"><h3>Refresh Yourself!</h3>Quench your thirst with our range of soft drinks!</div>
   </div>
   <div class="mySlides">
     <div class="numbertext">4 / 4</div>
-    <a href="./drinks.php"><img src="images\cookies.jpg" alt="Chocolate Cookies" class="img-thumbnail" style="width:100%; height:400px"></a>
-    <div class="text" style="background-color:black"><h3>Yum-Yum!</h3>Add the finishing touch to your meal with one of our delicious desserts!</div>
+    <a href="./drinks.php"><img src="images\cookies.jpg" alt="Chocolate Cookies"  style="width:100%; height:400px"></a>
+    <div class="text" style="background-color:#161B22"><h3>Yum-Yum!</h3>Add the finishing touch to your meal with one of our delicious desserts!</div>
   </div>
   <!-- Next and previous buttons -->
   <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
