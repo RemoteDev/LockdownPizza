@@ -102,13 +102,13 @@ if (!empty($_SESSION["cart"])){ //if the cart is not empty
     <h1 style="color:white">Complete Your Order</h1>
   </div>
 
-  <div class="album py-5 bg-light p-3">
+  <div class="album py-5 bg-dark p-3">
     <div class="container">
 
 
     <!-- cart section --->
 <div id="shopping-cart">
-<div class="txt-heading">Your Order Details</div>
+<div class="txt-heading" style="color:white">Your Order Details</div>
 
 <?php
 if(isset($_SESSION["cart"])){
@@ -116,7 +116,7 @@ if(isset($_SESSION["cart"])){
     $total_price = 0;
 ?>
 
-<table class="tbl-cart" cellpadding="10" cellspacing="1">
+<table class="tbl-cart" style="color:white" cellpadding="10" cellspacing="1">
     <tbody>
         <tr>
             <th style="text-align:left;">Item</th>
@@ -146,6 +146,21 @@ if(isset($_SESSION["cart"])){
         </tr>
     </tbody>
 </table>
+
+<div class="mb-3" style="color:white">
+		    <label for="exampleInputEmail1" 
+		           class="form-label">Discount Code
+		    </label>
+		    <input type="email" 
+		           name="email" 
+		           class="form-control transparent" 
+		           id="exampleInputEmail1" aria-describedby="emailHelp">
+</div>
+		  <div class = "col text-center">
+		  <button  
+		          class="btn btn-outline-light btn-lg btn-block w-100">Apply Discount
+		  </button>
+      </div>
 
 <?php
 } else {

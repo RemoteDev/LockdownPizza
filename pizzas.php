@@ -9,11 +9,11 @@
             
   $privileges = $user['cust_privileges'];
   $log_link = "./logout.php";
-  $log_label = "Logout";
+  $log_label = "Logout ";
   } else {
     $privileges = NULL;
     $log_link = "./login.php";
-    $log_label = "Login";
+    $log_label = "Login ";
   }
   ?>
 <html lang="en">

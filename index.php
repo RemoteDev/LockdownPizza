@@ -155,31 +155,31 @@ All our pizzas are cooked with fresh ingredients, from our grass-fed ground beef
     <div class="row">
     <div class="col-md-4">
       <div class="thumbnail">
-        <a href="images\cheese and tomato.jpg" target="_blank">
-          <img src="images\cheese and tomato.jpg" alt="Cheese and Tomato Pizza" class="img-thumbnail" style="width:100%; height:250px">
-          <div class="caption">
-            <button style="width:100%">Classic Cheese and Tomato Pizza</button>
-          </div>
+        <a href="./pizzas.php">
+          <img src="images\cheese and tomato.jpg" alt="Cheese and Tomato Pizza"  style="width:100%; height:250px">
+          <button 
+		          class="btn btn-outline-dark btn-block w-100">Chocolate Fudge Cake
+		      </button>
         </a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="thumbnail">
-        <a href="images\mozzarella sticks.jpg" target="_blank">
-          <img src="images\mozzarella sticks.jpg" alt="Mozzarella Sticks" class="img-thumbnail" style="width:100%; height:250px">
-          <div class="caption">
-          <button style="width:100%">Cheesy Mozzarella Sticks</button>
-          </div>
+        <a href="./sides.php">
+          <img src="images\mozzarella sticks.jpg" alt="Mozzarella Sticks"  style="width:100%; height:250px">
+          <button 
+		          class="btn btn-outline-dark btn-block w-100">Cheesy Mozzarella Sticks
+		      </button>
         </a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="thumbnail">
-        <a href="images\chocolate fudge ice cream.jpg" target="_blank">
-          <img src="images\chocolate fudge ice cream.jpg" alt="Chocolate Fudge Ice Cream" class="img-thumbnail" style="width:100%; height:250px">
-          <div class="caption">
-          <button style="width:100%">Sweet Chocolate Fudge Ice Cream</button>
-          </div>
+        <a href="./desserts.php">
+          <img src="images\chocolate fudge ice cream.jpg" alt="Chocolate Fudge Ice Cream"  style="width:100%; height:250px">
+          <button 
+		          class="btn btn-outline-dark btn-block w-100">Chocolate Fudge Cake
+		      </button>
         </a>
       </div>
     </div>
