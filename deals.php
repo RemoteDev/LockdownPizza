@@ -78,44 +78,44 @@
     <h1 style="color:white">Deals</h1>
   </div>
 
-  <div class="album py-5 bg-light">
+  <div class="album py-5 bg-dark">
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
-          <div class="card shadow-sm">
+          <div class="card shadow-lg border-secondary bg-transparent">
             <div class="card-body">
-              <p class="card-text"><b>30% OFF PIZZAS WHEN YOU SPEND £30</b></p>
+              <p class="card-text" style="color:white"><b>30% OFF PIZZAS WHEN YOU SPEND £30</b></p>
               <div class="d-flex justify-content-between align-items-center">
               <p class="text-muted">T&Cs apply</p>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-primary">Apply</button>
+                  <button type="button" class="btn btn-outline-light btn-lg">Apply</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="col">
-          <div class="card shadow-sm">
+          <div class="card shadow-lg border-secondary bg-transparent">
             <div class="card-body">
-              <p class="card-text"><b>40% OFF PIZZAS WHEN YOU SPEND £40</b></p>
+              <p class="card-text" style="color:white"><b>40% OFF PIZZAS WHEN YOU SPEND £40</b></p>
               <div class="d-flex justify-content-between align-items-center">
               <p class="text-muted">T&Cs apply</p>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-primary">Apply</button>
+                  <button type="button" class="btn btn-outline-light btn-lg">Apply</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="col">
-          <div class="card shadow-sm">
+          <div class="card shadow-lg border-secondary bg-transparent">
             <div class="card-body">
-              <p class="card-text"><b>ANY SIZE ONLY £13.99</b></p>
+              <p class="card-text" style="color:white"><b>ANY SIZE ONLY £13.99</b></p>
               <div class="d-flex justify-content-between align-items-center">
               <p class="text-muted">T&Cs apply</p>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-lg btn-primary">Apply</button>
+                  <button type="button" class="btn btn-outline-light btn-lg">Apply</button>
                 </div>
               </div>
             </div>

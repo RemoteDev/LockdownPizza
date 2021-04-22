@@ -220,7 +220,7 @@ if(isset($_SESSION["cart"])){
 	?>
 		<div class="product-item">
       <div class="col">
-        <div class="card shadow-sm">
+        <div class="card shadow-lg border-secondary bg-transparent">
           <div class="product-image"><img alt="<?php echo $pizza ['food_name'] ?>" width="100%" height="225" src="<?php echo $pizza ['food_image']; ?>"></div>
           <div class="product-tile-footer">
           <div class="card-body bg-dark">
